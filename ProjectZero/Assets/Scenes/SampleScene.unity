@@ -348,6 +348,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7564019167720550176, guid: 6fe6ef60ef392a740959bae9efd7e6b3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7564019167720550176, guid: 6fe6ef60ef392a740959bae9efd7e6b3, type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7564019167720550176, guid: 6fe6ef60ef392a740959bae9efd7e6b3, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7564019167720550176, guid: 6fe6ef60ef392a740959bae9efd7e6b3, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.9655352
+      objectReference: {fileID: 0}
+    - target: {fileID: 7564019167720550176, guid: 6fe6ef60ef392a740959bae9efd7e6b3, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
