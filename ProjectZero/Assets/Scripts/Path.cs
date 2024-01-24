@@ -26,7 +26,7 @@ public class Path : MonoBehaviour
         cloneRigidbody.AddForce(force);
 
         List<Vector3> pathPoints = new List<Vector3>();
-        int simulationSteps = 1000;
+        int simulationSteps = 100;
         for (int i = 0; i < simulationSteps; i++)
         {
             Physics2D.Simulate(Time.fixedDeltaTime);
