@@ -304,14 +304,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird
       objectReference: {fileID: 0}
-    - target: {fileID: 5170519140445300187, guid: 6fe6ef60ef392a740959bae9efd7e6b3, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5170519140445300187, guid: 6fe6ef60ef392a740959bae9efd7e6b3, type: 3}
-      propertyPath: m_UseWorldSpace
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5202950185035522886, guid: 6fe6ef60ef392a740959bae9efd7e6b3, type: 3}
       propertyPath: m_RootOrder
       value: 1
