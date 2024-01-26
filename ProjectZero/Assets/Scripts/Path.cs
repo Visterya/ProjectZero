@@ -24,9 +24,10 @@ public class Path : MonoBehaviour
         Rigidbody2D cloneRigidbody = clone.GetComponent<Rigidbody2D>();
         cloneRigidbody.velocity = Vector3.zero;
         cloneRigidbody.AddForce(force);
+        cloneRigidbody.gameObject.tag = "Clone";
 
         List<Vector3> pathPoints = new List<Vector3>();
-        int simulationSteps = 100;
+        int simulationSteps = 60;
         for (int i = 0; i < simulationSteps; i++)
         {
             Physics2D.Simulate(Time.fixedDeltaTime);

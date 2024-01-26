@@ -10,11 +10,9 @@ public class Swing : MonoBehaviour
 
     [Header("Components")]
     private Rigidbody2D _rb;
-    private LineRenderer _line;
 
     private void Awake()
     {
-        _line = this.GetComponent<LineRenderer>();
         _rb = this.GetComponent<Rigidbody2D>();
     }
 
@@ -30,13 +28,7 @@ public class Swing : MonoBehaviour
         CalculateThrowVector();
         Path.VisualizePath(this.gameObject, throwVector);
     }
-    private void SetArrow()
-    {
-        _line.positionCount = 2;
-        _line.SetPosition(0, Vector3.zero);
-        _line.SetPosition(1, throwVector.normalized * 2);
-        _line.enabled = true;
-    }
+
     private void CalculateThrowVector()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
@@ -57,8 +49,4 @@ public class Swing : MonoBehaviour
         _rb.AddForce(throwVector);
     }
 
-    private void RemoveArrow()
-    {
-        _line.enabled = false;
-    }
 }
