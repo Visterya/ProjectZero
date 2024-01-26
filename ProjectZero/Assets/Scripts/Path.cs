@@ -14,6 +14,7 @@ public class Path : MonoBehaviour
         clone = Instantiate(throwable, throwable.transform.position, Quaternion.identity);
         clone.GetComponent<Rigidbody2D>().simulated = true;
         clone.GetComponent<CircleCollider2D>().enabled = true;
+        clone.GetComponent<SpriteRenderer>().sprite = null;
 
         Physics2D.simulationMode = SimulationMode2D.Script;
     }
@@ -27,7 +28,7 @@ public class Path : MonoBehaviour
         cloneRigidbody.gameObject.tag = "Clone";
 
         List<Vector3> pathPoints = new List<Vector3>();
-        int simulationSteps = 60;
+        int simulationSteps = 69;
         for (int i = 0; i < simulationSteps; i++)
         {
             Physics2D.Simulate(Time.fixedDeltaTime);

@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     private UIManager _uiManager;
     [HideInInspector] public string lvlUnlock = "LevelUnlock";
+    private int throwLimit = 3;
+    public int ThrowLimit { get { return throwLimit; } set{ throwLimit = value; } }
 
     private void Awake()
     {

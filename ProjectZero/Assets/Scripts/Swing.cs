@@ -8,6 +8,7 @@ public class Swing : MonoBehaviour
 {
     Vector3 throwVector;
 
+
     [Header("Components")]
     private Rigidbody2D _rb;
 
@@ -15,6 +16,7 @@ public class Swing : MonoBehaviour
     {
         _rb = this.GetComponent<Rigidbody2D>();
     }
+
 
     private void OnMouseDown()
     {
@@ -42,6 +44,7 @@ public class Swing : MonoBehaviour
     {
         Path.StopVisualizingPath(this.gameObject);
         Throw();
+        GameManager.instance.ThrowLimit--; 
     }
 
     private void Throw()

@@ -8,10 +8,15 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField]private GameObject _winPanel;
     [SerializeField]private GameObject _losePanel;
+    [SerializeField] private TextMeshProUGUI throwLimitText;
 
     private void Start()
     {
         GameManager.instance.RegisterUIManager(this);
+    }
+    private void Update()
+    {
+        ThrowLimitText();
     }
 
     public void WinPanel()
@@ -30,5 +35,9 @@ public class UIManager : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void ThrowLimitText()
+    {
+        throwLimitText.text = GameManager.instance.ThrowLimit.ToString();
     }
 }
