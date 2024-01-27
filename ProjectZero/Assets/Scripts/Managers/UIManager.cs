@@ -27,16 +27,11 @@ public class UIManager : MonoBehaviour
     {
         _losePanel.SetActive(true);
     }
-
-    public void LoadLevelString(string levelName)
-    {
-        SceneManager.LoadScene(levelName);
-        Time.timeScale = 1f;
-    }
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
+        GameManager.instance.ThrowLimit = 3;
     }
     public void ThrowLimitText()
     {
