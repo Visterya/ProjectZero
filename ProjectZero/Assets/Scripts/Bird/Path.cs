@@ -27,6 +27,7 @@ public class Path : MonoBehaviour
         clone.transform.position = throwable.transform.position;
 
         Rigidbody2D cloneRigidbody = clone.GetComponent<Rigidbody2D>();
+        SpriteRenderer cloneSpriteRenderer = clone.GetComponent<SpriteRenderer>();
         cloneRigidbody.velocity = Vector3.zero;
         cloneRigidbody.AddForce(force);
         cloneRigidbody.gameObject.tag = "Clone";
@@ -43,6 +44,7 @@ public class Path : MonoBehaviour
         linePath.enabled = true;
         linePath.positionCount = pathPoints.Count;
         linePath.SetPositions(pathPoints.ToArray());
+        clone.GetComponent<SpriteRenderer>().sprite = null;
 
     }
     public static void StopVisualizingPath(GameObject throwable)
