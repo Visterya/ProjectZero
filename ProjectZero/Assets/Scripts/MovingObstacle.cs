@@ -27,11 +27,11 @@ public class MovingObstacle : MonoBehaviour
     {
         if (_switch == false)
         {
-            transform.position = Vector3.MoveTowards(transform.position, destinationPoints[0].position, .006f);
+            transform.position = Vector3.MoveTowards(transform.position, destinationPoints[0].position, .009f);
         }
         else if(_switch == true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, destinationPoints[1].position, .006f);
+            transform.position = Vector3.MoveTowards(transform.position, destinationPoints[1].position, .009f);
         }
         if(transform.position == destinationPoints[0].position)
         {
