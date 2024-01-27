@@ -20,6 +20,10 @@ public class Path : MonoBehaviour
     }
     public static void VisualizePath(GameObject throwable, Vector3 force)
     {
+        if(GameManager.instance.ThrowLimit <= 0)
+        {
+            return;
+        }
         clone.transform.position = throwable.transform.position;
 
         Rigidbody2D cloneRigidbody = clone.GetComponent<Rigidbody2D>();
@@ -28,7 +32,7 @@ public class Path : MonoBehaviour
         cloneRigidbody.gameObject.tag = "Clone";
 
         List<Vector3> pathPoints = new List<Vector3>();
-        int simulationSteps = 69;
+        int simulationSteps = 45;
         for (int i = 0; i < simulationSteps; i++)
         {
             Physics2D.Simulate(Time.fixedDeltaTime);

@@ -20,6 +20,7 @@ public class Swing : MonoBehaviour
 
     private void OnMouseDown()
     {
+        ThrowCounter();
         CalculateThrowVector();
         Path.StartVisualizingPath(this.gameObject);
     }
@@ -50,6 +51,15 @@ public class Swing : MonoBehaviour
     private void Throw()
     {
         _rb.AddForce(throwVector);
+    }
+
+    private void ThrowCounter()
+    {
+        if(GameManager.instance.ThrowLimit <= 0)
+        {
+            GameManager.instance.ThrowLimit = 0;
+            GameManager.instance.GameLose();
+        }
     }
 
 }

@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     private UIManager _uiManager;
-    [HideInInspector] public string lvlUnlock = "LevelUnlock";
     private int throwLimit = 3;
-    public int ThrowLimit { get { return throwLimit; } set{ throwLimit = value; } }
+    public int ThrowLimit { get { return throwLimit; } set{ throwLimit = value; if (throwLimit <= 0) throwLimit = 0; } }
+    [HideInInspector] public string lvlUnlock = "LevelUnlock";
 
     private void Awake()
     {
@@ -32,11 +32,13 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt(lvlUnlock, nextLevel);
         }
         _uiManager.WinPanel();
+        Time.timeScale = 0f;
     }
 
     public void GameLose()
     {
         _uiManager.LosePanel();
+        Time.timeScale = 0f;
     }
 
     public void RegisterUIManager(UIManager uiManager)
