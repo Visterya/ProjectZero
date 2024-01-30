@@ -8,6 +8,7 @@ public class Swing : MonoBehaviour
 {
     Vector3 throwVector;
     private bool isFlyMode = false;
+    private bool isThrowing = false;
 
     [Header("Components")]
     private Rigidbody2D _rb;
@@ -28,7 +29,6 @@ public class Swing : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        ThrowCounter();
         CalculateThrowVector();
         SetArrow();
         isFlyMode = false;
@@ -54,17 +54,29 @@ public class Swing : MonoBehaviour
     }
     private void SetArrow()
     {
+
         _lr.positionCount = 2;
         _lr.SetPosition(0, Vector3.zero);
         _lr.SetPosition(1, Vector3.up * 4);
         _lr.enabled = true;
+
+
     }
     private void OnMouseUp()
     {
-        RemoveArrow();
-        Throw();
-        GameManager.instance.ThrowLimit--;
-        isFlyMode = true;
+        if(GameManager.instance.ThrowLimit > 0 && !isThrowing)
+        {
+            RemoveArrow();
+            Throw();
+            isFlyMode = true;
+
+            if(GameManager.instance.ThrowLimit == 0)
+            {
+                isThrowing = true;
+                StartCoroutine(GameLoseSequence());
+            }
+        }
+
     }
 
     private void RemoveArrow()
@@ -75,16 +87,10 @@ public class Swing : MonoBehaviour
     private void Throw()
     {
         _rb.AddForce(throwVector);
+        GameManager.instance.ThrowLimit--;
+        Invoke("ResetThrowFlag", 3.5f);
     }
 
-    private void ThrowCounter()
-    {
-        if(GameManager.instance.ThrowLimit <= 0)
-        {
-            GameManager.instance.ThrowLimit = 0;
-            GameManager.instance.GameLose();
-        }
-    }
 
     private void ChangeSprite()
     {
@@ -96,6 +102,17 @@ public class Swing : MonoBehaviour
         {
             _spriteRenderer.sprite = idle;
         }
+    }
+
+    void ResetThrowFlag()
+    {
+        isThrowing = false;
+    }
+
+    private IEnumerator GameLoseSequence()
+    {
+        yield return new WaitForSeconds(2);
+        GameManager.instance.GameLose();
     }
 
 
