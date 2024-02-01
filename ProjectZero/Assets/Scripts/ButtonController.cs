@@ -7,8 +7,15 @@ public class ButtonController : MonoBehaviour
 {
     public void LoadLevelString(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        FadeCanvas.fader.FaderLoadString(sceneName);
+        Time.timeScale = 1f;
         GameManager.instance.ThrowLimit = 3;
-        Time.timeScale = 1;
+
+    }
+    public void RestartLevel()
+    {
+        FadeCanvas.fader.FaderLoadInt(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+        GameManager.instance.ThrowLimit = 3;
     }
 }

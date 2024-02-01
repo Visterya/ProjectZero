@@ -12,14 +12,14 @@ public class Swing : MonoBehaviour
 
     [Header("Components")]
     private Rigidbody2D _rb;
-    private SpriteRenderer _spriteRenderer;
+    private Animator _anim;
     private LineRenderer _lr;
     [SerializeField] private Sprite idle, fly;
 
     private void Awake()
     {
         _rb = this.GetComponent<Rigidbody2D>();
-        _spriteRenderer = this.GetComponent<SpriteRenderer>();
+        _anim = this.GetComponent<Animator>();
         _lr = this.GetComponent<LineRenderer>();
     }
 
@@ -94,14 +94,9 @@ public class Swing : MonoBehaviour
 
     private void ChangeSprite()
     {
-        if(isFlyMode == true)
-        {
-            _spriteRenderer.sprite = fly;
-        }
-        else
-        {
-            _spriteRenderer.sprite = idle;
-        }
+
+        _anim.SetBool("isFlying", isFlyMode);
+        
     }
 
     void ResetThrowFlag()

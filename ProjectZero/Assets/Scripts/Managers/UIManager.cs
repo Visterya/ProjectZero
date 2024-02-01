@@ -27,12 +27,6 @@ public class UIManager : MonoBehaviour
     {
         _losePanel.SetActive(true);
     }
-    public void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f;
-        GameManager.instance.ThrowLimit = 3;
-    }
     public void ThrowLimitText()
     {
         throwLimitText.text = GameManager.instance.ThrowLimit.ToString();
