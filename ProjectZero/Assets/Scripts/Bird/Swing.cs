@@ -107,6 +107,7 @@ public class Swing : MonoBehaviour
     private IEnumerator GameLoseSequence()
     {
         yield return new WaitForSeconds(2);
+        _rb.velocity = Vector2.zero;
         GameManager.instance.GameLose();
     }
 

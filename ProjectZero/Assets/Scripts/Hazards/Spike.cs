@@ -8,6 +8,10 @@ public class Spike : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (collision.gameObject.TryGetComponent(out Rigidbody2D rb))
+            {
+                rb.velocity = Vector3.zero;
+            }
             GameManager.instance.GameLose();
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class MovingObstacle : MonoBehaviour
 {
     [SerializeField] private Transform[] destinationPoints;
+    [SerializeField, Range(0.01f,1f)] private float speed;
     private bool _switch = false;
     private void Start()
     {
@@ -27,11 +28,11 @@ public class MovingObstacle : MonoBehaviour
     {
         if (_switch == false)
         {
-            transform.position = Vector3.MoveTowards(transform.position, destinationPoints[0].position, .009f);
+            transform.position = Vector3.MoveTowards(transform.position, destinationPoints[0].position, speed * Time.deltaTime);
         }
         else if(_switch == true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, destinationPoints[1].position, .009f);
+            transform.position = Vector3.MoveTowards(transform.position, destinationPoints[1].position, speed * Time.deltaTime);
         }
         if(transform.position == destinationPoints[0].position)
         {
