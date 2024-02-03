@@ -14,7 +14,6 @@ public class Swing : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _anim;
     private LineRenderer _lr;
-    [SerializeField] private Sprite idle, fly;
 
     private void Awake()
     {
@@ -29,6 +28,10 @@ public class Swing : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        if (GameManager.instance.ThrowLimit <= 0)
+        {
+            return;
+        }
         CalculateThrowVector();
         SetArrow();
         isFlyMode = false;
@@ -37,6 +40,10 @@ public class Swing : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        if (GameManager.instance.ThrowLimit <= 0) 
+        {
+            return;
+        }
         CalculateThrowVector();
         SetArrow();
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
+
     private Rigidbody2D rb;
 
     Vector3 lastVelocity;
