@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class Swing : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class Swing : MonoBehaviour
         _rb = this.GetComponent<Rigidbody2D>();
         _anim = this.GetComponent<Animator>();
         _lr = this.GetComponent<LineRenderer>();
+    }
+
+    private void OnEnable()
+    {
+        transform.DOScale(Vector3.zero, 1).From();
     }
 
     private void Update()
@@ -63,8 +69,8 @@ public class Swing : MonoBehaviour
     {
 
         _lr.positionCount = 2;
-        _lr.SetPosition(0, Vector3.zero);
-        _lr.SetPosition(1, Vector3.up * 4);
+        _lr.SetPosition(0, new Vector3(0, 0, 10));
+        _lr.SetPosition(1, new Vector3(0, 4, 10));
         _lr.enabled = true;
 
 

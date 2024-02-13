@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     private UIManager _uiManager;
-    private int throwLimit = 3;
+    private int throwLimit = 5;
+    private bool gameWon;
+    public bool GameWon { get { return gameWon; } }
     public int ThrowLimit { get { return throwLimit; } set{ throwLimit = value; if (throwLimit <= 0) throwLimit = 0; } }
     [HideInInspector] public string lvlUnlock = "LevelUnlock";
 
@@ -33,12 +35,14 @@ public class GameManager : MonoBehaviour
         }
         _uiManager.WinPanel();
         Time.timeScale = 0f;
+        gameWon = true;
     }
 
     public void GameLose()
     {
         _uiManager.LosePanel();
         Time.timeScale = 0f;
+        gameWon = false;
     }
 
     public void RegisterUIManager(UIManager uiManager)

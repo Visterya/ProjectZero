@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Spike : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class Spike : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent(out Rigidbody2D rb))
             {
-                rb.velocity = Vector3.zero;
+                collision.transform.DOScale(Vector3.zero, 1);
+                Destroy(rb.gameObject);
             }
             GameManager.instance.GameLose();
         }

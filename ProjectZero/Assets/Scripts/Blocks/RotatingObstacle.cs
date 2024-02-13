@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotatingObstacle : MonoBehaviour
 {
-    [SerializeField, Range(10, 50)] private float rotateSpeed;
+    [SerializeField, Range(-45, 45)] private float rotateSpeed;
     void Start()
     {
         InvokeRepeating("RotateObstacle", 0.1f, 1f);

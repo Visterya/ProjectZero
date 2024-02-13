@@ -12,6 +12,13 @@ public class ButtonIcons : MonoBehaviour
     [SerializeField] private Sprite unlockedButton;
     [SerializeField] private int firstLevelBuildIndex;
 
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey(GameManager.instance.lvlUnlock))
+        {
+            PlayerPrefs.SetInt(GameManager.instance.lvlUnlock, firstLevelBuildIndex);
+        }
+    }
     private void Awake()
     {
         int unlockedLvl = PlayerPrefs.GetInt(GameManager.instance.lvlUnlock, firstLevelBuildIndex);
@@ -33,4 +40,5 @@ public class ButtonIcons : MonoBehaviour
             }
         }
     }
+
 }
